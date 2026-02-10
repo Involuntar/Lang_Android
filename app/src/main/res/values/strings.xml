@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Recipes</string>
+
+    <string name="breakfast">Breakfast</string>
+    <string name="quark_pancakes">Quark Pancakes</string>
+    <string name="recipe_quark_pancakes">Mix 500g quark, 1 egg, 2 tbsp sugar, and 3 tbsp flour. Form small patties and fry in oil until golden brown.</string>
+
+    <string name="lunch">Lunch</string>
+    <string name="ramen">Ramen</string>
+    <string name="recipe_ramen">Cook a rich broth. Boil noodles separately. Combine broth, noodles, a boiled egg, nori, and pork slices in a bowl.</string>
+
+    <string name="dinner">Dinner</string>
+    <string name="shepherds_pie">Shepherd\'s Pie</string>
+    <string name="recipe_shepherds_pie">Brown minced meat with veggies. Top with a layer of mashed potatoes and bake until the top is golden brown.</string>
+
+    <string name="back">Back</string>
+</resources>

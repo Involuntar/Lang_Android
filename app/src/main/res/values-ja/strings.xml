@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">レシピ</string>
+
+    <string name="breakfast">朝食</string>
+    <string name="quark_pancakes">チーズパンケーキ</string>
+    <string name="recipe_quark_pancakes">トボログ（カッテージチーズ）500g、卵1個、砂糖大さじ2、小麦粉大さじ3を混ぜます。丸く形を整え、フライパンで両面をきつね色に焼きます。</string>
+
+    <string name="lunch">昼ご飯</string>
+    <string name="ramen">拉麺 「ラーメン」</string>
+    <string name="recipe_ramen">濃いめの出汁｢スープ｣）を作ります。麺を別に茹でます。器にスープ、麺、ゆで卵、海苔、チャーシューを盛り付けます。</string>
+
+    <string name="dinner">夕食</string>
+    <string name="shepherds_pie">シェパーズパイ</string>
+    <string name="recipe_shepherds_pie">挽肉と野菜を炒めます。その上にマッシュポテトを重ね、オーブンできつね色になるまで焼きます。</string>
+
+    <string name="back">戻る</string>
+</resources>

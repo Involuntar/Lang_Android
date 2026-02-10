@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Рецепты</string>
+
+    <string name="breakfast">Завтрак</string>
+    <string name="quark_pancakes">Сырники</string>
+    <string name="recipe_quark_pancakes">Смешайте 500г творога, 1 яйцо, 2 ст.л. сахара и 3 ст.л. муки. Сформируйте биточки и обжарьте на масле до золотистой корочки.</string>
+
+    <string name="lunch">Обед</string>
+    <string name="ramen">Рамен</string>
+    <string name="recipe_ramen">Сварите крепкий бульон. Отдельно отварите лапшу. Соедините в чаше бульон, лапшу, вареное яйцо, нори и ломтики свинины.</string>
+
+    <string name="dinner">Ужин</string>
+    <string name="shepherds_pie">Пастуший пирог</string>
+    <string name="recipe_shepherds_pie">Обжарьте фарш с овощами. Сверху выложите слой картофельного пюре и запекайте в духовке до золотистой корочки.</string>
+
+    <string name="back">Назад</string>
+</resources>
