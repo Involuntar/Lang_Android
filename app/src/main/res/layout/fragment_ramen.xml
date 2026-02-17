@@ -1,41 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".RamenFragment">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/media_buttons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/ramen_title"
+        <ImageButton
+            android:id="@+id/play_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ramen"
-            android:textSize="35dp" />
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/play"
+            android:src="@drawable/play" />
 
-        <TextView
-            android:id="@+id/ramen_text"
+        <ImageButton
+            android:id="@+id/pause_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ramen_title"
-            android:layout_marginTop="10dp"
-            android:text="@string/recipe_ramen"
-            android:textSize="25dp" />
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/pause"
+            android:src="@drawable/pause" />
 
-        <Button
-            android:id="@+id/back_btn"
+        <ImageButton
+            android:id="@+id/stop_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/back"
-            android:textSize="25dp"
-            android:backgroundTint="@color/header_bg"
-            android:textColor="@color/black"/>
-    </RelativeLayout>
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/stop"
+            android:src="@drawable/stop" />
+    </LinearLayout>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/ramen_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/media_buttons"
+        android:text="@string/ramen"
+        android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/ramen_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ramen_title"
+        android:layout_marginTop="10dp"
+        android:text="@string/recipe_ramen"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/header_bg"
+        android:text="@string/back"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+</RelativeLayout>

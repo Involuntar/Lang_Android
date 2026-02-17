@@ -16,4 +16,7 @@
 
     <string name="all">全て</string>
     <string name="back">戻る</string>
+    <string name="play">演奏する</string>
+    <string name="pause">一時停止</string>
+    <string name="stop">止める</string>
 </resources>

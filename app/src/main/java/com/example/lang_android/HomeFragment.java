@@ -29,28 +29,24 @@ public class HomeFragment extends Fragment {
         dinnerBtn = view.findViewById(R.id.dinner_btn);
         allBtn = view.findViewById(R.id.all_btn);
 
-        Fragment quarkFragment = new QuarkFragment();
-        Fragment ramenFragment = new RamenFragment();
-        Fragment pieFragment = new PieFragment();
-
         quarksCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setCurrentFragment(quarkFragment);
+                setCurrentFragment(new QuarkFragment());
             }
         });
 
         ramenCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setCurrentFragment(ramenFragment);
+                setCurrentFragment(new RamenFragment());
             }
         });
 
         pieCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setCurrentFragment(pieFragment);
+                setCurrentFragment(new PieFragment());
             }
         });
 
