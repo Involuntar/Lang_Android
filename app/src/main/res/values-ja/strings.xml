@@ -19,4 +19,5 @@
     <string name="play">演奏する</string>
     <string name="pause">一時停止</string>
     <string name="stop">止める</string>
+    <string name="watch">見る</string>
 </resources>

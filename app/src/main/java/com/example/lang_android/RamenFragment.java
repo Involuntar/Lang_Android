@@ -2,6 +2,7 @@ package com.example.lang_android;
 
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,17 +11,21 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import java.util.Locale;
 
 public class RamenFragment extends Fragment {
-    Button backButton;
+    Button backButton, watchBtn;
     ImageButton playButton, pauseButton, stopButton;
     MediaPlayer mPlayer;
     Locale currentLocale;
+    VideoView videoPlayer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,6 +42,21 @@ public class RamenFragment extends Fragment {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
         String lang = prefs.getString("Locale.Helper.Selected.Language", "en");
+
+        videoPlayer = view.findViewById(R.id.videoPlayer);
+        Uri ramenVideoUri = Uri.parse("android.resource://" + requireContext().getPackageName() + "/" + R.raw.ramen);
+        videoPlayer.setVideoURI(ramenVideoUri);
+        MediaController mediaController = new MediaController(requireContext());
+        videoPlayer.setMediaController(mediaController);
+        mediaController.setMediaPlayer(videoPlayer);
+
+//        watchBtn = view.findViewById(R.id.watch_btn);
+//        watchBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                playVideo();
+//            }
+//        });
 
         playButton = view.findViewById(R.id.play_btn);
         pauseButton = view.findViewById(R.id.pause_btn);
@@ -125,5 +145,18 @@ public class RamenFragment extends Fragment {
         if (mPlayer.isPlaying()) {
             stopPlay();
         }
+    }
+
+    public void playVideo() {
+        videoPlayer.start();
+    }
+
+    public void pauseVideo() {
+        videoPlayer.pause();
+    }
+
+    public void stopVideo() {
+        videoPlayer.stopPlayback();
+        videoPlayer.resume();
     }
 }
