@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/quark_pancakes"
-            android:textSize="35dp" />
+            android:textSize="35sp" />
 
         <TextView
             android:id="@+id/quarks_text"
@@ -24,7 +24,52 @@
             android:layout_below="@+id/quarks_title"
             android:layout_marginTop="10dp"
             android:text="@string/recipe_quark_pancakes"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/quarks_text"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fry_timer"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/fry_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="05:00"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/start_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/play" />
+
+                <ImageButton
+                    android:id="@+id/pause_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/pause" />
+                <ImageButton
+                    android:id="@+id/reset_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/stop" />
+            </LinearLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/back_btn"
@@ -32,10 +77,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/back"
-            android:textSize="25dp"
             android:backgroundTint="@color/header_bg"
-            android:textColor="@color/black"/>
+            android:text="@string/back"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
     </RelativeLayout>
 
 </FrameLayout>
