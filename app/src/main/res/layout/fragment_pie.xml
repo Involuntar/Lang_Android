@@ -26,16 +26,109 @@
             android:text="@string/recipe_shepherds_pie"
             android:textSize="25dp" />
 
+        <LinearLayout
+            android:id="@+id/fry_timer_block"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pie_text"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fry_timer"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/fry_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20:00"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/start_fry_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/play" />
+
+                <ImageButton
+                    android:id="@+id/pause_fry_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/pause" />
+
+                <ImageButton
+                    android:id="@+id/reset_fry_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/stop" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fry_timer_block"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/baking_time"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/baking_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25:00"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/start_baking_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/play" />
+
+                <ImageButton
+                    android:id="@+id/pause_baking_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/pause" />
+
+                <ImageButton
+                    android:id="@+id/reset_baking_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:src="@drawable/stop" />
+            </LinearLayout>
+        </LinearLayout>
+
         <Button
             android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:text="@string/back"
-            android:textSize="25dp"
             android:backgroundTint="@color/header_bg"
-            android:textColor="@color/black"/>
+            android:text="@string/back"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
     </RelativeLayout>
 
 </FrameLayout>
