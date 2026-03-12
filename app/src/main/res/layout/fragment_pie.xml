@@ -85,12 +85,27 @@
                 android:text="@string/baking_time"
                 android:textSize="35sp" />
 
-            <TextView
-                android:id="@+id/baking_timer"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="25:00"
-                android:textSize="25sp" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/baking_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_25_00"
+                    android:textSize="25sp" />
+
+                <EditText
+                    android:id="@+id/baking_timer_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:autofillHints=""
+                    android:hint="@string/_25_00"
+                    android:inputType="time"
+                    android:textSize="25sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

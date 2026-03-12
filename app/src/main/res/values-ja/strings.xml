@@ -22,4 +22,5 @@
     <string name="watch">見る</string>
     <string name="fry_timer">揚げ時間</string>
     <string name="baking_time">焼き時間</string>
+    <string name="_25_00">25:00</string>
 </resources>

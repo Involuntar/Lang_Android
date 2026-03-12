@@ -1,5 +1,7 @@
 package com.example.lang_android;
 
+import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -21,13 +24,16 @@ public class PieFragment extends Fragment {
     TextView fryTime, bakingTime;
     ImageButton fryPlayButton, fryPauseButton, fryResetButton,
             bakingPlayButton, bakingPauseButton, bakingResetButton;
+    EditText editBakingTime;
     boolean fryTimerRunning, bakingTimerRunning = false;
     private final long fryStartTimeInMillis = 1200000;
     private final long bakingStartTimeInMillis = 1500000;
     private long fryTimeLeftInMillis = fryStartTimeInMillis;
-    private long bakingTimeLeftInMillis = bakingStartTimeInMillis;
+    private long bakingTimeLeftInMillis;
     private CountDownTimer fryTimer;
     private CountDownTimer bakingTimer;
+    MediaPlayer bakingMediaPlayer;
+    MediaPlayer fryMediaPlayer;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +46,11 @@ public class PieFragment extends Fragment {
                 requireActivity().getOnBackPressedDispatcher().onBackPressed();
             }
         });
+        
+        bakingMediaPlayer = MediaPlayer.create(getContext(), R.raw.microwave_timer);
+        fryMediaPlayer = MediaPlayer.create(getContext(), R.raw.vibraslap);
+        
+        editBakingTime = view.findViewById(R.id.baking_timer_input);
 
         fryTime = view.findViewById(R.id.fry_timer);
         bakingTime = view.findViewById(R.id.baking_timer);
@@ -87,6 +98,28 @@ public class PieFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!bakingTimerRunning) {
+                    String input = editBakingTime.getText().toString();
+                    if (input.isEmpty()) {
+                        bakingTimeLeftInMillis = bakingStartTimeInMillis;
+                    } else {
+                        try {
+                            if (input.contains(":")) {
+                                String[] parts = input.split(":");
+                                if (parts.length == 0) {
+                                    bakingTimeLeftInMillis = bakingStartTimeInMillis;
+                                } else {
+                                    long minutes = parts[0].isEmpty() ? 0 : Long.parseLong(parts[0]);
+                                    long seconds = (parts.length > 1 && !parts[1].isEmpty()) ? Long.parseLong(parts[1]) : 0;
+                                    bakingTimeLeftInMillis = (minutes * 60 + seconds) * 1000;
+                                }
+                            } else {
+                                // Если введено просто число, считаем как минуты
+                                bakingTimeLeftInMillis = Long.parseLong(input) * 60000;
+                            }
+                        } catch (NumberFormatException e) {
+                            bakingTimeLeftInMillis = bakingStartTimeInMillis;
+                        }
+                    }
                     startBakingTimer();
                 }
             }
@@ -123,6 +156,9 @@ public class PieFragment extends Fragment {
             @Override
             public void onTick(long millisUntilFinished) {
                 fryTimeLeftInMillis = millisUntilFinished; // Обновляем остаток
+                if (fryTimeLeftInMillis <= 60000) {
+                    fryTime.setTextColor(Color.RED);
+                }
                 NumberFormat f = new DecimalFormat("00");
                 long min = (millisUntilFinished / 60000) % 60;
                 long sec = (millisUntilFinished / 1000) % 60;
@@ -131,6 +167,7 @@ public class PieFragment extends Fragment {
 
             @Override
             public void onFinish() {
+                fryMediaPlayer.start();
                 fryTimerRunning = false;
                 fryTime.setText("00:00");
                 fryTimeLeftInMillis = fryStartTimeInMillis;
@@ -146,6 +183,9 @@ public class PieFragment extends Fragment {
             @Override
             public void onTick(long millisUntilFinished) {
                 bakingTimeLeftInMillis = millisUntilFinished; // Обновляем остаток
+                if (bakingTimeLeftInMillis <= 60000) {
+                    bakingTime.setTextColor(Color.RED);
+                }
                 NumberFormat f = new DecimalFormat("00");
                 long min = (millisUntilFinished / 60000) % 60;
                 long sec = (millisUntilFinished / 1000) % 60;
@@ -154,6 +194,7 @@ public class PieFragment extends Fragment {
 
             @Override
             public void onFinish() {
+                bakingMediaPlayer.start();
                 bakingTimerRunning = false;
                 bakingTime.setText("00:00");
                 bakingTimeLeftInMillis = bakingStartTimeInMillis;

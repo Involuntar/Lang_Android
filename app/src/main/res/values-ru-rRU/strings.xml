@@ -22,4 +22,5 @@
     <string name="watch">Смотреть</string>
     <string name="fry_timer">Время жарки</string>
     <string name="baking_time">Время запекания</string>
+    <string name="_25_00">25:00</string>
 </resources>

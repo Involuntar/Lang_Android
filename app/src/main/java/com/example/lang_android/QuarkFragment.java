@@ -1,5 +1,7 @@
 package com.example.lang_android;
 
+import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,6 +25,7 @@ public class QuarkFragment extends Fragment {
     private final long startTimeInMillis = 300000;
     private long timeLeftInMillis = startTimeInMillis;
     private CountDownTimer timer;
+    MediaPlayer mPlayer;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class QuarkFragment extends Fragment {
                 requireActivity().getOnBackPressedDispatcher().onBackPressed();
             }
         });
+        mPlayer = MediaPlayer.create(requireContext(), R.raw.vibraslap);
 
         fryTimer = view.findViewById(R.id.fry_timer);
 
@@ -82,6 +86,9 @@ public class QuarkFragment extends Fragment {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeLeftInMillis = millisUntilFinished; // Обновляем остаток
+                if (timeLeftInMillis <= 60000) {
+                    fryTimer.setTextColor(Color.RED);
+                }
                 NumberFormat f = new DecimalFormat("00");
                 long min = (millisUntilFinished / 60000) % 60;
                 long sec = (millisUntilFinished / 1000) % 60;
@@ -90,6 +97,7 @@ public class QuarkFragment extends Fragment {
 
             @Override
             public void onFinish() {
+                mPlayer.start();
                 timerRunning = false;
                 fryTimer.setText("00:00");
                 timeLeftInMillis = 300000;
