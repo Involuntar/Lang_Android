@@ -88,6 +88,8 @@ public class QuarkFragment extends Fragment {
                 timeLeftInMillis = millisUntilFinished; // Обновляем остаток
                 if (timeLeftInMillis <= 60000) {
                     fryTimer.setTextColor(Color.RED);
+                } else {
+                    fryTimer.setTextColor(Color.BLACK);
                 }
                 NumberFormat f = new DecimalFormat("00");
                 long min = (millisUntilFinished / 60000) % 60;

@@ -158,6 +158,8 @@ public class PieFragment extends Fragment {
                 fryTimeLeftInMillis = millisUntilFinished; // Обновляем остаток
                 if (fryTimeLeftInMillis <= 60000) {
                     fryTime.setTextColor(Color.RED);
+                } else {
+                    fryTime.setTextColor(Color.BLACK);
                 }
                 NumberFormat f = new DecimalFormat("00");
                 long min = (millisUntilFinished / 60000) % 60;
@@ -185,6 +187,8 @@ public class PieFragment extends Fragment {
                 bakingTimeLeftInMillis = millisUntilFinished; // Обновляем остаток
                 if (bakingTimeLeftInMillis <= 60000) {
                     bakingTime.setTextColor(Color.RED);
+                } else {
+                    bakingTime.setTextColor(Color.BLACK);
                 }
                 NumberFormat f = new DecimalFormat("00");
                 long min = (millisUntilFinished / 60000) % 60;
